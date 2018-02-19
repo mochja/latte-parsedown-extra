@@ -2,6 +2,7 @@
 
 namespace Contributte\Parsedown;
 
+use Latte\Runtime\FilterInfo;
 use Nette\SmartObject;
 use ParsedownExtra;
 
@@ -31,10 +32,11 @@ class ParsedownExtraAdapter
 	}
 
 	/**
+	 * @param FilterInfo $info
 	 * @param mixed $text
 	 * @return mixed
 	 */
-	public function process($text)
+	public function process(FilterInfo $info, $text)
 	{
 		$this->onProcess($text, $this);
 
@@ -42,10 +44,11 @@ class ParsedownExtraAdapter
 	}
 
 	/**
+	 * @param FilterInfo $info
 	 * @param mixed $line
 	 * @return string
 	 */
-	public function processLine($line)
+	public function processLine(FilterInfo $info, $line)
 	{
 		$this->onProcess($line, $this);
 
